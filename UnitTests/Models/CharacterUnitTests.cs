@@ -12,23 +12,6 @@ namespace UnitTests.Models
     public class CharacterUnitTests
     {
         [Test]
-        public void Character_ScaleLevel_1_Should_Pass()
-        {
-            // Arrange
-            var Test = new Character();
-            int Level = 1;
-            bool Expected = true;
-
-            // Act
-            var Actual = Test.ScaleLevel(Level);
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
-        }
-
-        [Test]
         public void Character_ScaleLevel_0_Should_Fail()
         {
             // Arrange
@@ -46,11 +29,11 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void Character_ScaleLevel_Neg1_Should_Fail()
+        public void Character_ScaleLevel_21_Should_fail()
         {
             // Arrange
             var Test = new Character();
-            int Level = 0;
+            int Level = 21;
             bool Expected = false;
 
             // Act
@@ -83,23 +66,6 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void Character_ScaleLevel_MaxLevel_Plus_Should_Fail()
-        {
-            // Arrange
-            var Test = new Character();
-            int Level = LevelTable.MaxLevel+1;
-            bool Expected = false;
-
-            // Act
-            var Actual = Test.ScaleLevel(Level);
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
-        }
-
-        [Test]
         public void Character_ScaleLevel_Lower_Level_Should_Fail()
         {
             // Arrange
@@ -111,54 +77,12 @@ namespace UnitTests.Models
             Test.ScaleLevel(2);
 
             // Act
-            var Actual = Test.ScaleLevel(Level-1);
+            var Actual = Test.ScaleLevel(Level - 1);
 
             // Reset
 
             // Assert
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
-        }
-
-        [Test]
-        public void Character_ScaleLevel_Level_1_Forced_5_Should_Return_MaxHealth_5()
-        {
-            // Arrange
-            var Test = new Character();
-            int Level = 1;
-            int Expected = 5;  // Expected MaxHealth
-
-            // Turn on Forced Values
-            GameGlobals.SetForcedRandomNumbersValue(5);
-
-            // Act
-            var Actual = Test.ScaleLevel(Level);
-
-            // Reset
-            GameGlobals.DisableRandomValues();
-
-            // Assert
-            Assert.AreEqual(Expected, Test.GetHealthMax(), TestContext.CurrentContext.Test.Name);
-        }
-
-        [Test]
-        public void Character_ScaleLevel_Level_2_Forced_5_Should_Return_MaxHealth_10()
-        {
-            // Arrange
-            var Test = new Character();
-            int Level = 2;
-            int Expected = 10;  // Expected MaxHealth
-
-            // Turn on Forced Values
-            GameGlobals.SetForcedRandomNumbersValue(5);
-
-            // Act
-            var Actual = Test.ScaleLevel(Level);
-
-            // Reset
-            GameGlobals.DisableRandomValues();
-
-            // Assert
-            Assert.AreEqual(Expected, Test.GetHealthMax(), TestContext.CurrentContext.Test.Name);
         }
     }
 }

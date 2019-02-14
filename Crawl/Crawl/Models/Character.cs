@@ -54,11 +54,8 @@ namespace Crawl.Models
             // Implement
         }
 
-        /// <summary>
-        /// Sets the Level to Scale Up to
-        /// </summary>
-        /// <param name="level">The New Level</param>
-        /// <returns>True if New Level Occurs</returns>
+        // Upgrades to a set level
+        //Part 11 in the HW, add code to cover conditions
         public bool ScaleLevel(int level)
         {
             // Level of < 1 does not need changing
@@ -93,13 +90,14 @@ namespace Crawl.Models
             return true;
         }
 
+
         // Update the character information
         // Updates the attribute string
         public void Update(Character newData)
         {
 
             // Implement
-                return;
+            return;
         }
 
         // Helper to combine the attributes into a single line, to make it easier to display the item as a string
@@ -190,7 +188,7 @@ namespace Crawl.Models
             // Implement
 
             // Get bonus from Items
-            
+
             return myReturn;
         }
 
@@ -215,7 +213,7 @@ namespace Crawl.Models
 
             // Implement
 
-            
+
             return myReturn;
         }
 
@@ -227,7 +225,7 @@ namespace Crawl.Models
 
             // Implement
 
-            
+
             return myReturn;
         }
 
@@ -243,7 +241,7 @@ namespace Crawl.Models
             // Implement
 
             // Drop all Items
-            
+
             return myReturn;
         }
 

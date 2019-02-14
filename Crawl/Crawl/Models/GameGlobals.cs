@@ -21,6 +21,7 @@ namespace Crawl.Models
 
         // Forces Monsters to hit with a set value
         // Zero, because don't want to add it in unless it is used...
+        // Follow the Unit Testing presenation to complete this task
         public static int ForceMonsterDamangeBonusValue = 0;
 
         // Forces Characters to hit with a set value

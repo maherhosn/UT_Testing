@@ -21,6 +21,7 @@ namespace Crawl.GameEngine
         /// <returns></returns>
         public static int RollDice (int rolls, int dice)
         {
+            //Add defensive programing code to RollDice to catch for Roll <1, and Dice <1
 
             if (rolls < 1)
             {

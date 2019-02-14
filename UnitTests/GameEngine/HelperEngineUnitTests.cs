@@ -16,56 +16,54 @@ namespace UnitTests.GameEngine
             // Arrange
             var Roll = 1;
             var Dice = 10;
+            var Expected = 1;
 
             // Act
             var Actual = Crawl.GameEngine.HelperEngine.RollDice(Roll, Dice);
 
-            // Assert
-            Assert.NotZero(Actual, TestContext.CurrentContext.Test.Name);
+            // Assert "Actual value is greater than or equal to 1
+            Assert.GreaterOrEqual(Actual, Expected, TestContext.CurrentContext.Test.Name);
         }
-
         [Test]
         public void RollDice_Roll_2_Dice_10_Should_Pass()
         {
             // Arrange
             var Roll = 2;
             var Dice = 10;
+            var Expected = 1;
 
             // Act
             var Actual = Crawl.GameEngine.HelperEngine.RollDice(Roll, Dice);
 
-            // Assert
-            Assert.NotZero(Actual, TestContext.CurrentContext.Test.Name);
+            // Assert "Actual value is greater than or equal to 1
+            Assert.GreaterOrEqual(Actual, Expected, TestContext.CurrentContext.Test.Name);
         }
-
-
         [Test]
-        public void RollDice_Roll_0_Dice_10_Should_Fail()
+        public void RollDice_Roll_0_Dice_10_Should_Pass()
         {
             // Arrange
             var Roll = 0;
             var Dice = 10;
-            var Expected = 0;   // Fail
+            var Expected = 0;
 
             // Act
             var Actual = Crawl.GameEngine.HelperEngine.RollDice(Roll, Dice);
 
-            // Assert
-            Assert.AreEqual(Expected,Actual, TestContext.CurrentContext.Test.Name);
+            // Assert that return value is 0 with unsupported Roll or Dic values
+            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
         }
-
         [Test]
         public void RollDice_Roll_Neg1_Dice_10_Should_Fail()
         {
             // Arrange
             var Roll = -1;
             var Dice = 10;
-            var Expected = 0;   // Fail
+            var Expected = 0;
 
             // Act
             var Actual = Crawl.GameEngine.HelperEngine.RollDice(Roll, Dice);
 
-            // Assert
+            // Assert that return value is 0 with unsupported Roll or Dic values
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
         }
 
@@ -75,40 +73,39 @@ namespace UnitTests.GameEngine
             // Arrange
             var Roll = 1;
             var Dice = -1;
-            var Expected = 0;   // Fail
+            var Expected = 0;
 
             // Act
             var Actual = Crawl.GameEngine.HelperEngine.RollDice(Roll, Dice);
 
-            // Assert
+            // Assert that return value is 0 with unsupported Roll or Dic values
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
         }
-
         [Test]
         public void RollDice_Roll_1_Dice_Zero_Should_Fail()
         {
             // Arrange
             var Roll = 1;
             var Dice = 0;
-            var Expected = 0;   // Fail
+            var Expected = 0;
 
             // Act
             var Actual = Crawl.GameEngine.HelperEngine.RollDice(Roll, Dice);
 
-            // Assert
+            // Assert that return value is 0 with unsupported Roll or Dic values
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
         }
 
         [Test]
-        public void RollDice_Roll_1_Dice_10_Forced_5_Should_Return_5()
+        public void RollDice_Roll_1_Dice_10_Fixed_5_Should_Return_5()
         {
             // Arrange
             var Roll = 1;
             var Dice = 10;
-            var Expected = 5;   // Fail to test
+            var Expected = 5;
 
-            // Force RollDice to return a 5
-            Crawl.Models.GameGlobals.SetForcedRandomNumbersValue(5);
+            //Force Expected Value of 5
+            Crawl.Models.GameGlobals.SetForcedRandomNumbersValue(Expected);
 
             // Act
             var Actual = Crawl.GameEngine.HelperEngine.RollDice(Roll, Dice);
@@ -116,8 +113,9 @@ namespace UnitTests.GameEngine
             // Reset
             Crawl.Models.GameGlobals.DisableRandomValues();
 
-            // Assert
+            // Assert "Actual value is greater than or equal to 1
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
         }
+
     }
 }
