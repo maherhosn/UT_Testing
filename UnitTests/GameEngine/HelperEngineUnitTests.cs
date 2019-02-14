@@ -105,7 +105,7 @@ namespace UnitTests.GameEngine
             // Arrange
             var Roll = 1;
             var Dice = 10;
-            var Expected = 5;   // Fail
+            var Expected = 5;   // Fail to test
 
             // Force RollDice to return a 5
             Crawl.Models.GameGlobals.SetForcedRandomNumbersValue(5);
